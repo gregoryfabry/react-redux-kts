@@ -1,4 +1,5 @@
 import React from 'react';
+import uuid from 'uuid';
 import Entry from './HourEntry/HourEntry';
 
 class HourTracker extends React.Component {
@@ -28,15 +29,37 @@ class HourTracker extends React.Component {
   }
 
   onTitleEdit = (ev, id) => {
-    /* fill in */
+    const existingEntryIndex = this.state.entries.findIndex((entry) => {
+      return entry.id === id;
+    });
+    const newEntries = this.state.entries.slice();
+    newEntries[existingEntryIndex].title = ev.target.value;
+    this.setState({
+      entries: newEntries,
+    });
   }
 
   onHoursEdit = (ev, id) => {
-    /* fill in */
+    const existingEntryIndex = this.state.entries.findIndex((entry) => {
+      return entry.id === id;
+    });
+    const newEntries = this.state.entries.slice();
+    newEntries[existingEntryIndex].hours = parseInt(ev.target.value);
+    this.setState({
+      entries: newEntries,
+    });
   }
 
   onAddEntry = () => {
-    /* fill in */
+    const existingEntries = this.state.entries.slice();
+    existingEntries.push({
+      id: uuid(),
+      title: '',
+      hours: 0,
+    });
+    this.setState({
+      entries: existingEntries,
+    });
   }
 
   render() {
@@ -58,7 +81,7 @@ class HourTracker extends React.Component {
           }
         </div>
         <div>
-          {/* fill in add button */}
+          <button onClick={this.onAddEntry}>Add</button>
         </div>
       </div>
     );
