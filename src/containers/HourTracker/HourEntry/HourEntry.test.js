@@ -20,8 +20,19 @@ describe('HourEntry', () => {
     wrapper = shallow(<HourEntry title={title} hours={hours} onTitleEdit={onTitleEdit} onHoursEdit={onHoursEdit} />);
   });
 
-  it('renders without crashing', () => {
-    console.log(wrapper.debug());
-    expect(wrapper.find('HourEntry').length).toEqual(1);
+  it('updates title', () => {
+    const event = {
+      value: 'new title',
+    };
+    wrapper.find('.id-title-input').simulate('change', event)
+    expect(onTitleEdit).toHaveBeenCalledWith(event);
+  });
+
+  it('updates hours', () => {
+    const event = {
+      value: 2,
+    };
+    wrapper.find('.id-hours-input').simulate('change', event)
+    expect(onHoursEdit).toHaveBeenCalledWith(event);
   });
 });
