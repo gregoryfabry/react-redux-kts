@@ -33,7 +33,9 @@ class HourTracker extends React.Component {
       return entry.id === id;
     });
     const newEntries = this.state.entries.slice();
-    newEntries[existingEntryIndex].title = ev.target.value;
+    newEntries[existingEntryIndex] = Object.assign({}, newEntries[existingEntryIndex], {
+      title: ev.target.value,
+    });
     this.setState({
       entries: newEntries,
     });
@@ -44,7 +46,9 @@ class HourTracker extends React.Component {
       return entry.id === id;
     });
     const newEntries = this.state.entries.slice();
-    newEntries[existingEntryIndex].hours = parseInt(ev.target.value);
+    newEntries[existingEntryIndex] = Object.assign({}, newEntries[existingEntryIndex], {
+      hours: parseInt(ev.target.value),
+    });
     this.setState({
       entries: newEntries,
     });
