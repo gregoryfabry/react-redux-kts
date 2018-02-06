@@ -39,7 +39,7 @@ class HourTracker extends React.Component {
     return (
       <div>
         {
-          entries.map((entry) => {
+          this.state.entries.map((entry) => {
             return (
               <Entry
                 key={entry.id}
