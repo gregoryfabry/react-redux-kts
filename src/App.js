@@ -11,8 +11,8 @@ class App extends React.Component {
       <Router>
         <div className="app">
           <ul className="navigation">
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/total-hours">Total Hours</Link></li>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/total-hours">Total Hours</Link></li>
           </ul>
           <Route exact path="/" component={HourTracker} />
           <Route path="/total-hours" component={TotalHours} />
