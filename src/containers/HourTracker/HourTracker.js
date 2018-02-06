@@ -35,22 +35,31 @@ class HourTracker extends React.Component {
     /* fill in */
   }
 
+  onAddEntry = () => {
+    /* fill in */
+  }
+
   render() {
     return (
       <div>
-        {
-          this.state.entries.map((entry) => {
-            return (
-              <Entry
-                key={entry.id}
-                title={entry.title}
-                hours={entry.hours}
-                onTitleEdit={(ev) => { this.onTitleEdit(ev, entry.id); }}
-                onHoursEdit={(ev) => { this.onHoursEdit(ev, entry.id); }}
-              />
-            );
-          })
-        }
+        <div>
+          {
+            this.state.entries.map((entry) => {
+              return (
+                <Entry
+                  key={entry.id}
+                  title={entry.title}
+                  hours={entry.hours}
+                  onTitleEdit={(ev) => { this.onTitleEdit(ev, entry.id); }}
+                  onHoursEdit={(ev) => { this.onHoursEdit(ev, entry.id); }}
+                />
+              );
+            })
+          }
+        </div>
+        <div>
+          {/* fill in add button */}
+        </div>
       </div>
     );
   }
