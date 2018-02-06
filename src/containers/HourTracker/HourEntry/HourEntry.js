@@ -7,7 +7,7 @@ const HourEntry = ({ title, hours, onHoursEdit, onTitleEdit }) => {
      Title:
      <input className="id-title-input" value={title} onChange={onTitleEdit} />
      Hours:
-     <input className="id-hours-input" value={hours} onChange={onHoursEdit} />
+     <input className="id-hours-input" value={hours} onChange={onHoursEdit} type="number" />
     </div>
  );
 }
