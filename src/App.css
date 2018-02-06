@@ -6,3 +6,9 @@
   padding-bottom: 16px;
   border-bottom: 2px solid gray;
 }
+
+.entry {
+  margin: 16px;
+  padding: 16px;
+  border: 1px solid black;
+}

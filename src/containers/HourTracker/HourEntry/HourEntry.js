@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const HourEntry = ({ title, hours, onHoursEdit, onTitleEdit }) => {
  return (
-   <div>
+   <div className="entry">
      Entry
     </div>
  );
