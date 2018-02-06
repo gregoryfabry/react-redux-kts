@@ -4,7 +4,10 @@ import PropTypes from 'prop-types';
 const HourEntry = ({ title, hours, onHoursEdit, onTitleEdit }) => {
  return (
    <div className="entry">
-     Entry
+     Title:
+     <input className="id-title-input" value={title} onChange={onTitleEdit} />
+     Hours:
+     <input className="id-hours-input" value={hours} onChange={onHoursEdit} />
     </div>
  );
 }
