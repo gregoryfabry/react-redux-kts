@@ -3,31 +3,39 @@ import Entry from './HourEntry/HourEntry';
 
 class HourTracker extends React.Component {
 
-  onTitleEdit = (ev) => {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      entries: [
+        {
+          id: '1',
+          hours: 1,
+          title: 'Grab Coffee',
+        },
+        {
+          id: '2',
+          hours: 2,
+          title: 'Read Reddit',
+        },
+        {
+          id: '3',
+          hours: 1,
+          title: 'Attend KTS',
+        },
+      ],
+    }
+  }
+
+  onTitleEdit = (ev, id) => {
     /* fill in */
   }
 
-  onHoursEdit = (ev) => {
+  onHoursEdit = (ev, id) => {
     /* fill in */
   }
+
   render() {
-    const entries = [
-      {
-        id: '1',
-        hours: 1,
-        title: 'Grab Coffee',
-      },
-      {
-        id: '2',
-        hours: 2,
-        title: 'Read Reddit',
-      },
-      {
-        id: '3',
-        hours: 1,
-        title: 'Attend KTS',
-      },
-    ];
     return (
       <div>
         {
@@ -37,8 +45,8 @@ class HourTracker extends React.Component {
                 key={entry.id}
                 title={entry.title}
                 hours={entry.hours}
-                onTitleEdit={this.onTitleEdit}
-                onHoursEdit={this.onHoursEdit}
+                onTitleEdit={(ev) => { this.onTitleEdit(ev, entry.id); }}
+                onHoursEdit={(ev) => { this.onHoursEdit(ev, entry.id); }}
               />
             );
           })
