@@ -34,7 +34,17 @@ class HourTracker extends React.Component {
   }
 
   onHoursEdit = (ev, id) => {
-    /* fill in */
+    const newEntries = this.state.entries.map((entry) => {
+      if (entry.id === id) {
+        return Object.assign({}, entry, {
+          hours: parseInt(ev.target.value, 10),
+        });
+      }
+      return entry;
+    });
+    this.setState({
+      entries: newEntries,
+    });
   }
 
   onAddEntry = () => {
