@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { HourTrackerComponent } from './HourTracker';
 
-describe('HourTracker', () => {
+describe('HourTracker - Exercise 3', () => {
   let wrapper, addEntry, updateEntryTitle, updateEntryHours;
   const entries = [
     {
