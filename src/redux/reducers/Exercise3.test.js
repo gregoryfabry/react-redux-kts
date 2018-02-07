@@ -2,7 +2,7 @@ import React from 'react';
 import { addEntry, updateEntryTitle, updateEntryHours, fetchEntriesSuccess } from '../actions/HourTrackerActions';
 import reducer, { initialState as reducerInitialState } from './HourTrackerReducer';
 
-describe('HourTrackerReducer', () => {
+describe('HourTrackerReducer - Exercise 3', () => {
   const initialState = {
     entries: [
       { id: '1', title: 'entry 1', hours: 5 },
