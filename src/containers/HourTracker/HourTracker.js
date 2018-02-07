@@ -1,9 +1,10 @@
 import React from 'react';
 import uuid from 'uuid';
+import { connect } from 'react-redux'; //eslint-disable-line
+import { addEntry, updateEntry } from '../../redux/actions/HourTrackerActions'; //eslint-disable-line
 import Entry from './HourEntry/HourEntry';
 
 class HourTracker extends React.Component {
-
   constructor(props) {
     super(props);
 
@@ -95,3 +96,23 @@ class HourTracker extends React.Component {
 }
 
 export default HourTracker;
+
+// const mapStateToProps = (state) => {
+//   return {
+//     entries: state.hourTrackerReducer.entries,
+//   };
+// };
+//
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     addEntry: () => {
+//       dispatch(addEntry());
+//     },
+//     updateEntry: (...args) => {
+//       dispatch(updateEntry(...args));
+//     },
+//   }
+// }
+
+// export { HourTracker as HourTrackerComponent };
+// export default connect(mapStateToProps, mapDispatchToProps)(HourTracker);
