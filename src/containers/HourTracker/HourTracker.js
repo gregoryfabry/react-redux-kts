@@ -1,5 +1,4 @@
 import React from 'react';
-import uuid from 'uuid';
 import { connect } from 'react-redux'; //eslint-disable-line
 import { addEntry, updateEntryTitle, updateEntryHours } from '../../redux/actions/HourTrackerActions'; //eslint-disable-line
 import Entry from './HourEntry/HourEntry';
