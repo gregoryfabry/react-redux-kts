@@ -21,7 +21,9 @@ describe('HourEntry', () => {
     const event = {
       value: 'new title',
     };
-    wrapper.find('.id-title-input').simulate('change', event)
+    const input = wrapper.find('.id-title-input');
+    expect(input.props().value).toEqual(title);
+    input.simulate('change', event)
     expect(onTitleEdit).toHaveBeenCalledWith(event);
   });
 
@@ -29,7 +31,9 @@ describe('HourEntry', () => {
     const event = {
       value: 2,
     };
-    wrapper.find('.id-hours-input').simulate('change', event)
+    const input = wrapper.find('.id-hours-input');
+    expect(input.props().value).toEqual(hours);
+    input.simulate('change', event)
     expect(onHoursEdit).toHaveBeenCalledWith(event);
   });
 });
