@@ -1,5 +1,5 @@
 import React from 'react';
-import { addEntry, updateEntry } from '../actions/HourTrackerActions';
+import { addEntry, updateEntry, fetchEntriesSuccess } from '../actions/HourTrackerActions';
 import reducer, { initialState as reducerInitialState } from './HourTrackerReducer';
 
 describe('HourTrackerReducer', () => {
@@ -43,6 +43,19 @@ describe('HourTrackerReducer', () => {
       entries: [
         { id: '1', title: 'new entry 1', hours: 27 },
         { id: '2', title: 'entry 2', hours: 7 },
+      ],
+      nextId: 3,
+    });
+  });
+
+  it('updates with fetched entries', () => {
+    const action = fetchEntriesSuccess([
+      { id: '5', title: 'I came from a server!', hours: 4 },
+    ]);
+    const finalState = reducer(initialState, action);
+    expect(finalState).toEqual({
+      entries: [
+        { id: '5', title: 'I came from a server!', hours: 4 },
       ],
       nextId: 3,
     });

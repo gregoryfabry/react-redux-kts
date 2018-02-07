@@ -42,6 +42,12 @@ export default (state = initialState, action) => {
       })
     }
 
+    case hourTrackerActions.FETCH_ENTRIES_SUCCESS: {
+      return Object.assign({}, state, {
+        entries: action.payload,
+      });
+    }
+
     default: {
       return state;
     }
