@@ -3,7 +3,7 @@ import { shallow, mount } from 'enzyme';
 import { HourTrackerComponent } from './HourTracker';
 
 describe('HourTracker', () => {
-  let wrapper, addEntry, updateEntry;
+  let wrapper, addEntry, updateEntryTitle, updateEntryHours;
   const entries = [
     {
       id: '1',
@@ -19,11 +19,13 @@ describe('HourTracker', () => {
 
   beforeEach(() => {
     addEntry = jest.fn();
-    updateEntry = jest.fn();
+    updateEntryTitle = jest.fn();
+    updateEntryHours = jest.fn();
     wrapper = shallow((
       <HourTrackerComponent
         addEntry={addEntry}
-        updateEntry={updateEntry}
+        updateEntryTitle={updateEntryTitle}
+        updateEntryHours={updateEntryHours}
         entries={entries}
       />
     ));
@@ -45,7 +47,7 @@ describe('HourTracker', () => {
       }
     }
     wrapper.find('HourEntry').first().props().onTitleEdit(event);
-    expect(updateEntry).toHaveBeenCalledWith('1', 'new-title', 27);
+    expect(updateEntryTitle).toHaveBeenCalledWith('1', 'new-title');
   });
 
   it('updates hours', () => {
@@ -54,7 +56,7 @@ describe('HourTracker', () => {
         value: '10',
       }
     }
-    wrapper.find('HourEntry').first().props().onTitleEdit(event);
-    expect(updateEntry).toHaveBeenCalledWith('1', 'example entry', '10');
+    wrapper.find('HourEntry').first().props().onHoursEdit(event);
+    expect(updateEntryHours).toHaveBeenCalledWith('1', 10);
   });
 });

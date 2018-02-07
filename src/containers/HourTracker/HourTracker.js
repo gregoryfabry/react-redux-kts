@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'; //eslint-disable-line
-import { addEntry, updateEntry } from '../../redux/actions/HourTrackerActions'; //eslint-disable-line
+import { addEntry, updateEntryTitle, updateEntryHours } from '../../redux/actions/HourTrackerActions'; //eslint-disable-line
 import Entry from './HourEntry/HourEntry';
 
 class HourTracker extends React.Component {
@@ -79,11 +79,14 @@ export default HourTracker;
 //     addEntry: () => {
 //       dispatch(addEntry());
 //     },
-//     updateEntry: (...args) => {
-//       dispatch(updateEntry(...args));
+//     updateEntryTitle: (id, title) => {
+//       dispatch(updateEntryTitle(id, title));
+//     },
+//     updateEntryHours: (id, hours) => {
+//       dispatch(updateEntryHours(id, hours));
 //     },
 //   }
 // }
-
+//
 // export { HourTracker as HourTrackerComponent };
 // export default connect(mapStateToProps, mapDispatchToProps)(HourTracker);
