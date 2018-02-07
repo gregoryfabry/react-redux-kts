@@ -1,4 +1,5 @@
 import React from 'react';
+import uuid from 'uuid';
 import { connect } from 'react-redux'; //eslint-disable-line
 import { addEntry, updateEntryTitle, updateEntryHours } from '../../redux/actions/HourTrackerActions'; //eslint-disable-line
 import Entry from './HourEntry/HourEntry';
@@ -10,17 +11,17 @@ class HourTracker extends React.Component {
     this.state = {
       entries: [
         {
-          id: '1',
+          id: uuid(),
           hours: 1,
           title: 'Grab Coffee',
         },
         {
-          id: '2',
+          id: uuid(),
           hours: 2,
           title: 'Read Reddit',
         },
         {
-          id: '3',
+          id: uuid(),
           hours: 1,
           title: 'Attend KTS',
         },
