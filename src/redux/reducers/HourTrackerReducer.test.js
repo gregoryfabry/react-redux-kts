@@ -1,5 +1,5 @@
 import React from 'react';
-import { addEntry, updateEntry, fetchEntriesSuccess } from '../actions/HourTrackerActions';
+import { addEntry, updateEntryTitle, updateEntryHours, fetchEntriesSuccess } from '../actions/HourTrackerActions';
 import reducer, { initialState as reducerInitialState } from './HourTrackerReducer';
 
 describe('HourTrackerReducer', () => {
@@ -36,12 +36,24 @@ describe('HourTrackerReducer', () => {
     });
   });
 
-  it('updates an entry', () => {
-    const action = updateEntry('1', 'new entry 1', 27);
+  it('updates an entry title', () => {
+    const action = updateEntryTitle('1', 'new entry 1');
     const finalState = reducer(initialState, action);
     expect(finalState).toEqual({
       entries: [
-        { id: '1', title: 'new entry 1', hours: 27 },
+        { id: '1', title: 'new entry 1', hours: 5 },
+        { id: '2', title: 'entry 2', hours: 7 },
+      ],
+      nextId: 3,
+    });
+  });
+
+  it('updates entry hours', () => {
+    const action = updateEntryHours('1', 27);
+    const finalState = reducer(initialState, action);
+    expect(finalState).toEqual({
+      entries: [
+        { id: '1', title: 'entry 1', hours: 27 },
         { id: '2', title: 'entry 2', hours: 7 },
       ],
       nextId: 3,

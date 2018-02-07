@@ -30,11 +30,27 @@ export default (state = initialState, action) => {
       });
     }
 
-    case hourTrackerActions.UPDATE_ENTRY: {
+    case hourTrackerActions.UPDATE_ENTRY_TITLE: {
       return Object.assign({}, state, {
         entries: state.entries.map((entry) => {
           if (entry.id === action.payload.id) {
-            // TODO: finish this branch
+            return Object.assign({}, entry, {
+              title: action.payload.title,
+            })
+          }
+
+          return entry;
+        })
+      })
+    }
+
+    case hourTrackerActions.UPDATE_ENTRY_HOURS: {
+      return Object.assign({}, state, {
+        entries: state.entries.map((entry) => {
+          if (entry.id === action.payload.id) {
+            return Object.assign({}, entry, {
+              hours: action.payload.hours,
+            })
           }
 
           return entry;
