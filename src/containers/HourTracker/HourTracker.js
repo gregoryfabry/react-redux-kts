@@ -11,17 +11,17 @@ class HourTracker extends React.Component {
     this.state = {
       entries: [
         {
-          id: '1',
+          id: uuid(),
           hours: 1,
           title: 'Grab Coffee',
         },
         {
-          id: '2',
+          id: uuid(),
           hours: 2,
           title: 'Read Reddit',
         },
         {
-          id: '3',
+          id: uuid(),
           hours: 1,
           title: 'Attend KTS',
         },
