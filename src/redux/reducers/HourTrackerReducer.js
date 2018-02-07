@@ -48,7 +48,9 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {
         entries: state.entries.map((entry) => {
           if (entry.id === action.payload.id) {
-            /* TODO: fill in for Objective 3 */
+            return Object.assign({}, entry, {
+              hours: action.payload.hours,
+            });
           }
 
           return entry;
