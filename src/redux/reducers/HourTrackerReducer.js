@@ -4,17 +4,17 @@ export const initialState = {
   entries: [
     {
       id: '1',
-      hours: 1,
+      hours: 0,
       title: 'Grab Coffee',
     },
     {
       id: '2',
-      hours: 2,
+      hours: 0,
       title: 'Read Reddit',
     },
     {
       id: '3',
-      hours: 1,
+      hours: 0,
       title: 'Attend KTS',
     },
   ],
