@@ -4,17 +4,17 @@ export const initialState = {
   entries: [
     {
       id: '1',
-      hours: 1,
+      hours: 0,
       title: 'Grab Coffee',
     },
     {
       id: '2',
-      hours: 2,
+      hours: 0,
       title: 'Read Reddit',
     },
     {
       id: '3',
-      hours: 1,
+      hours: 0,
       title: 'Attend KTS',
     },
   ],
@@ -36,7 +36,7 @@ export default (state = initialState, action) => {
           if (entry.id === action.payload.id) {
             return Object.assign({}, entry, {
               title: action.payload.title,
-            })
+            });
           }
 
           return entry;
@@ -48,9 +48,7 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {
         entries: state.entries.map((entry) => {
           if (entry.id === action.payload.id) {
-            return Object.assign({}, entry, {
-              hours: action.payload.hours,
-            })
+            /* TODO: fill in for Objective 3 */
           }
 
           return entry;
