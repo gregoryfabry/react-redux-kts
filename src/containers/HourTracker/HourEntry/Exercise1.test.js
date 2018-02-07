@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import HourEntry from './HourEntry';
 
-describe('HourEntry', () => {
+describe('HourEntry - Exercise 1', () => {
   let title;
   let hours;
   let onTitleEdit;

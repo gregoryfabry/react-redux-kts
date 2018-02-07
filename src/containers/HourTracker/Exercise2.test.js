@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import HourTracker from './HourTracker';
 
-describe('HourTracker', () => {
+describe('HourTracker - Exercise2', () => {
   let wrapper;
   beforeEach(() => {
     wrapper = shallow(<HourTracker />);
