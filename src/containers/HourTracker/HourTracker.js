@@ -85,4 +85,5 @@ export default HourTracker;
 //   }
 // }
 
+// export { HourTracker as HourTrackerComponent };
 // export default connect(mapStateToProps, mapDispatchToProps)(HourTracker);
