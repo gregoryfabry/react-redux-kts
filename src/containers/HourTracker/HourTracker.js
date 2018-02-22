@@ -27,20 +27,12 @@ class HourTracker extends React.Component {
         },
       ],
     }
+
+    bindActions(this);
   }
 
   onTitleEdit = (ev, id) => {
-    const newEntries = this.state.entries.map((entry) => {
-      if (entry.id === id) {
-        return Object.assign({}, entry, {
-          title: ev.target.value,
-        });
-      }
-      return entry;
-    });
-    this.setState({
-      entries: newEntries,
-    });
+    this.updateEntryTitle(id, ev.target.value);
   }
 
   onHoursEdit = (ev, id) => {
@@ -93,6 +85,28 @@ class HourTracker extends React.Component {
       </div>
     );
   }
+}
+
+HourTracker.actions = {
+  updateEntryTitle: (id, title) => (lastState, props) => ({
+    entries: lastState.entries.map(entry => {
+      if (entry.id === id) {
+        return Object.assign({}, entry, {
+          title: title,
+        });
+      }
+
+      return entry;
+    }),
+  }),
+};
+
+// utility fn from other file
+const bindActions = (_this) => {
+  const _actions = _this.constructor.actions;
+  Object.keys(_actions).forEach(action => {
+    _this[action] = (...args) => _this.setState(_actions[action](...args));
+  });
 }
 
 export default HourTracker;
